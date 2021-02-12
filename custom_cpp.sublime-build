@@ -1,0 +1,16 @@
+{
+    "cmd":["g++ -std=c++17 -Wshadow -Wall -o ${file_base_name} ${file_name} -O2 -Wno-unused-result -D_ABHI && timeout 2.5s ./${file_base_name}"],
+    // "cmd":["g++ -std=c++17 -Wshadow -Wall -o ${file_base_name} ${file_name} -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG && timeout 0.5s ./${file_base_name}"],
+    "selector" : "source.c",
+	"shell": true,
+	"working_dir" : "$file_path"
+}
+
+// Compile (F8): g++ -std=c++17 -Wshadow -Wall -o "%e" "%f" -O2 -Wno-unused-result
+// Build (F9): g++ -std=c++17 -Wshadow -Wall -o "%e" "%f" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG
+// %e - substituted by the name of the current file without the extension.
+// %f - substituted by the name of the current file .
+
+// g++ -Wall -W -o hailstone hailstone.cpp
+// ./hailstone <data1.txt 
+// ./hailstone <data1.txt >out.txt
